@@ -1,15 +1,13 @@
 # XBypasser
 
-XBypasser is a macOS command-line utility that modifies an app’s `CFBundleIdentifier`, clears quarantine/extended attributes, and re-signs the app so it can run after modification.
-
+XBypasser is a macOS app that removes screen time restrictions on any non system app.
 ---
 
 ## ⚠️ Important macOS Warnings
 
-* Modifying an app bundle **breaks Apple code signing**
-* **SIP-protected system apps WILL FAIL** (this is expected behavior)
-* Apps located in `/Applications` may require **administrator (sudo) access** to restore
-* Some Apple system apps cannot be modified at all
+* **System apps WILL FAIL**
+* Apps located in `/Applications` require **administrator (sudo) access**
+* Some apps including chromium based browsers will fail
 
 XBypasser handles these cases gracefully and explains failures clearly.
 
@@ -28,41 +26,6 @@ The installer will:
 * Ask whether to install for **User** or **Admin (sudo)**
 * Automatically fall back to user install if sudo fails
 * Install the `XBypasser` command
-
----
-
-### User Installation
-
-* Installed to:
-
-```text
-~/.local/bin/XBypasser
-```
-
-If the command is not found, add this to your shell config (`~/.zshrc` or `~/.bashrc`):
-
-```bash
-export PATH="$HOME/.local/bin:$PATH"
-```
-
-Reload your shell:
-
-```bash
-source ~/.zshrc
-```
-
----
-
-### Admin Installation
-
-* Installed to:
-
-```text
-/usr/local/bin/XBypasser
-```
-
-Requires sudo permissions.
-
 ---
 
 ## 🚀 Usage
