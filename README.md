@@ -93,26 +93,6 @@ This copies the `CFBundleIdentifier` from `OtherApp.app` and applies it to the t
 
 ---
 
-## 🔄 What XBypasser Does Internally
-
-1. Modifies `CFBundleIdentifier` in `Info.plist`
-2. Temporarily moves the app to the user’s Home directory
-3. Clears extended attributes:
-
-```bash
-xattr -cr App.app
-```
-
-4. Re-signs the app using ad-hoc signing:
-
-```bash
-codesign -s - --deep --force App.app
-```
-
-5. Moves the app back to its original location
-
----
-
 ## ❌ Common Errors & Explanations
 
 ### SIP-Protected App
