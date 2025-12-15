@@ -10,17 +10,14 @@ ADMIN_BIN="/usr/local/bin"
 echo "=== $APP_NAME Installer ==="
 echo
 
-# Ensure we can read from terminal even when piped
-if [ ! -t 0 ]; then
-  exec </dev/tty
-fi
-
 echo "Choose installation type:"
 echo "1) Admin install (requires sudo) → $ADMIN_BIN"
 echo "2) User install (no sudo) → $USER_BIN"
 echo
 
-read -p "Enter choice [1/2]: " choice </dev/tty
+# Read from the terminal even when piped via curl
+echo -n "Enter choice [1/2]: "
+read choice </dev/tty
 echo
 
 install_user() {
